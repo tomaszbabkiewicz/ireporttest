@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="jasperreports-4.5.0.jar"/>
+	<classpathentry kind="lib" path="jasperreports-javaflow-4.5.0.jar"/>
+	<classpathentry kind="lib" path="jasperreports-applet-4.5.0.jar"/>
+	<classpathentry kind="lib" path="jasperreports-fonts-4.5.0.jar"/>
+	<classpathentry kind="lib" path="postgresql-8.3-604.jdbc4.jar"/>
+	<classpathentry kind="lib" path="commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="commons-collections-3.2.jar"/>
+	<classpathentry kind="lib" path="commons-digester-1.8.jar"/>
+	<classpathentry kind="lib" path="iText-2.1.7.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
