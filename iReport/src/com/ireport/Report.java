@@ -20,11 +20,11 @@ public class Report {
 			// Load the database driver
 		    Class.forName("org.postgresql.Driver") ;
 		    // Get a connection to the database		      
-		    conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/quamasoft", 
-		    	  "root",  
-		    	  "kom#34ala");
+		    conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/test", 
+		    	  "test",  
+		    	  "test");
 			
-			print = JasperFillManager.fillReport("wizardstep.jasper", param, conn);
+			print = JasperFillManager.fillReport("persons.jasper", param, conn);
 //			JasperExportManager.exportReportToPdfFile(print, "pdf.pdf");
 		} catch (Exception e) {
 			e.printStackTrace();
