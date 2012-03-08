@@ -1,6 +1,6 @@
-CREATE DATABASE elerning WITH TEMPLATE = template0 ENCODING = 'UTF8';
+CREATE DATABASE test WITH TEMPLATE = template0 ENCODING = 'UTF8';
 
-ALTER DATABASE elerning OWNER TO root;
+ALTER DATABASE test OWNER TO test;
 
 /* Table structure */
 
