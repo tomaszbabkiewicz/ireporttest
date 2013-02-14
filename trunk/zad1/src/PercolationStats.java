@@ -1,51 +1,55 @@
-public class PercolationStats {
-    
-    private int[] openedSitesCount;
+public class PercolationStats {    
+    private double[] openedSitesCounts;
     
     // perform T independent computational experiments on an N-by-N grid
     public PercolationStats(int N, int T) {
-        if ((N <= 0)  || (T <= 0))
-            throw new IllegalArgumentException();
+        if ((N <= 0)  || (T <= 0)) throw new IllegalArgumentException();
         
-        openedSitesCount = new int[T];
-        for (int i = 0; i < T; i++){
+        double allSiteCount = N * N;
+        openedSitesCounts = new double[T];
+        for (int i = 0; i < T; i++) {
             Percolation pre = new Percolation(N);
             int count = 0;
             while (!pre.percolates()) {
                 int p = StdRandom.uniform(1, N+1);
                 int q = StdRandom.uniform(1, N+1);
-                if (!pre.isOpen(p, q)){
-                    pre.open(p, p);
+                if (!pre.isOpen(p, q)) {
+                    pre.open(p, q);
                     count++;
                 }
             }
-            openedSitesCount[i] = count;
+            openedSitesCounts[i] = count / allSiteCount;
         }
     }
 
     // sample mean of percolation threshold
     public double mean() {
-        return StdStats.mean(openedSitesCount);
+        return StdStats.mean(openedSitesCounts);
     }
 
     // sample standard deviation of percolation threshold
     public double stddev() {
-        return 0.0;
+        return StdStats.stddev(openedSitesCounts);
     }
 
     // returns lower bound of the 95% confidence interval
     public double confidenceLo() {
-        return 0.0;
+        return mean() - (1.96 * stddev()) / Math.sqrt(openedSitesCounts.length);
     }
 
     // returns upper bound of the 95% confidence interval
     public double confidenceHi() {
-        return 0.0;
+        return mean() + (1.96 * stddev()) / Math.sqrt(openedSitesCounts.length);
     }
 
     // test client, described below
     public static void main(String[] args) {
-        PercolationStats pStat = new PercolationStats(10, 2);
-        StdOut.println(pStat.mean());
+        int N = Integer.parseInt(args[0]);
+        int T = Integer.parseInt(args[1]);
+        PercolationStats pStat = new PercolationStats(N, T);
+        StdOut.println("mean                    = " + pStat.mean());
+        StdOut.println("stddev                  = " + pStat.stddev());
+        StdOut.println("95% confidence interval = " 
+                + pStat.confidenceLo() + "," + pStat.confidenceHi());
     }
 }
