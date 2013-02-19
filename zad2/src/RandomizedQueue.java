@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -9,7 +10,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
     
     // construct an empty randomized queue
     public RandomizedQueue() {
-
+        randomizedQueue = new ArrayList<Item>();
     }
 
     // is the queue empty?
@@ -26,6 +27,13 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
     public void enqueue(Item item) {
         if (item == null)
             throw new NullPointerException();
+        int ind = 0;
+        if (size > 0)
+            ind = StdRandom.uniform(size);
+        if (ind == size)
+            randomizedQueue.add(item);
+        else 
+            randomizedQueue.add(ind, item);
         size++;
     }
 
@@ -33,18 +41,20 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
     public Item dequeue() {
         if (isEmpty())
             throw new NoSuchElementException();
+        Item i = randomizedQueue.get(size - 1);
+        randomizedQueue.remove(size - 1);
         size--;
-        return null;
+        return i;
     }
 
     // return (but do not delete) a random item
     public Item sample() {
         if (isEmpty())
             throw new NoSuchElementException();
-        return null;
+        return randomizedQueue.get(size - 1);
     }
 
-    // return an iterator over items in order from front to end
+    // return an independent iterator over items in random order
     public Iterator<Item> iterator() {
         Iterator<Item> it = new Iterator<Item>() {
 
