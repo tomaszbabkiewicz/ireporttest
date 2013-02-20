@@ -44,6 +44,7 @@ public class Deque<Item> implements Iterable<Item> {
         if (isEmpty())
             throw new NoSuchElementException();
         Item i = deque.get(0);
+        deque.set(0, null);
         deque.remove(0);
         size--;
         return i;
@@ -54,6 +55,7 @@ public class Deque<Item> implements Iterable<Item> {
         if (isEmpty())
             throw new NoSuchElementException();
         Item i = deque.get(size - 1);
+        deque.set(size - 1, null);
         deque.remove(size - 1);
         size--;
         return i;
@@ -61,10 +63,9 @@ public class Deque<Item> implements Iterable<Item> {
 
     // return an iterator over items in order from front to end
     public Iterator<Item> iterator() {
-        Iterator<Item> it = new Iterator<Item>() {
-
+        return new Iterator<Item>() {
             private int currentIndex = 0;
-
+            
             @Override
             public boolean hasNext() {
                 return (currentIndex < size) && (deque.get(currentIndex) != null);
@@ -72,8 +73,7 @@ public class Deque<Item> implements Iterable<Item> {
 
             @Override
             public Item next() {
-                if (currentIndex == size)
-                    throw new NoSuchElementException();
+                if (currentIndex == size) throw new NoSuchElementException();
                 return deque.get(currentIndex++);
             }
 
@@ -82,7 +82,6 @@ public class Deque<Item> implements Iterable<Item> {
                 throw new UnsupportedOperationException();
             }
         };
-        return it;
     }
     
 }
