@@ -57,19 +57,17 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
     // return an independent iterator over items in random order
     public Iterator<Item> iterator() {
         Iterator<Item> it = new Iterator<Item>() {
-
-            private int currentIndex = 0;
+            private int index = 0;
 
             @Override
             public boolean hasNext() {
-                return (currentIndex < size) && (randomizedQueue.get(currentIndex) != null);
+                return (index < size) && (randomizedQueue.get(index) != null);
             }
 
             @Override
             public Item next() {
-                if (currentIndex == size)
-                    throw new NoSuchElementException();
-                return randomizedQueue.get(currentIndex++);
+                if (index == size) throw new NoSuchElementException();
+                return randomizedQueue.get(index++);
             }
 
             @Override
