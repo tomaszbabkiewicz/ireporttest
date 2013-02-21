@@ -1,16 +1,15 @@
-import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
+import java.util.LinkedList;
 import java.util.NoSuchElementException;
 
 public class RandomizedQueue<Item> implements Iterable<Item> {
 
     private int size = 0;
-    private List<Item> randomizedQueue;
+    private LinkedList<Item> randomizedQueue;
     
     // construct an empty randomized queue
     public RandomizedQueue() {
-        randomizedQueue = new ArrayList<Item>();
+        randomizedQueue = new LinkedList<Item>();
     }
 
     // is the queue empty?
@@ -53,28 +52,29 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
             throw new NoSuchElementException();
         return randomizedQueue.get(size - 1);
     }
-
+    
     // return an independent iterator over items in random order
     public Iterator<Item> iterator() {
-        Iterator<Item> it = new Iterator<Item>() {
-            private int index = 0;
+        return new RandomizedQueueIterator();
+    }
 
-            @Override
-            public boolean hasNext() {
-                return (index < size) && (randomizedQueue.get(index) != null);
-            }
+    private class RandomizedQueueIterator implements Iterator<Item> {
+        private int index = 0;
 
-            @Override
-            public Item next() {
-                if (index == size) throw new NoSuchElementException();
-                return randomizedQueue.get(index++);
-            }
+        @Override
+        public boolean hasNext() {
+            return (index < size);
+        }
 
-            @Override
-            public void remove() {
-                throw new UnsupportedOperationException();
-            }
-        };
-        return it;
+        @Override
+        public Item next() {
+            if (!hasNext()) throw new NoSuchElementException();
+            return randomizedQueue.get(index++);
+        }
+
+        @Override
+        public void remove() {
+            throw new UnsupportedOperationException();
+        }
     }
 }
