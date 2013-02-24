@@ -26,13 +26,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
     public void enqueue(Item item) {
         if (item == null)
             throw new NullPointerException();
-        int ind = 0;
-        if (size > 0)
-            ind = StdRandom.uniform(size);
-        if (ind == size)
-            randomizedQueue.add(item);
-        else 
-            randomizedQueue.add(ind, item);
+        randomizedQueue.add(item);
         size++;
     }
 
@@ -40,8 +34,11 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
     public Item dequeue() {
         if (isEmpty())
             throw new NoSuchElementException();
-        Item i = randomizedQueue.get(size - 1);
-        randomizedQueue.remove(size - 1);
+        int ind = 0;
+        if (size > 0)
+            ind = StdRandom.uniform(size);
+        Item i = randomizedQueue.get(ind);
+        randomizedQueue.remove(ind);
         size--;
         return i;
     }
@@ -50,7 +47,10 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
     public Item sample() {
         if (isEmpty())
             throw new NoSuchElementException();
-        return randomizedQueue.get(size - 1);
+        int ind = 0;
+        if (size > 0)
+            ind = StdRandom.uniform(size);
+        return randomizedQueue.get(ind);
     }
     
     // return an independent iterator over items in random order
@@ -59,7 +59,16 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
     }
 
     private class RandomizedQueueIterator implements Iterator<Item> {
+        
+        private int[] indexes;
         private int index = 0;
+        
+        public RandomizedQueueIterator() {
+            indexes = new int[size];
+            for (int i = 0; i < size; i++)
+                indexes[i] = i;
+            StdRandom.shuffle(indexes);
+        }
 
         @Override
         public boolean hasNext() {
@@ -69,7 +78,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         @Override
         public Item next() {
             if (!hasNext()) throw new NoSuchElementException();
-            return randomizedQueue.get(index++);
+            return randomizedQueue.get(indexes[index++]);
         }
 
         @Override

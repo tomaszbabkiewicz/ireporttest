@@ -6,13 +6,18 @@ public class Subset {
         
         RandomizedQueue<String> rQueue = new RandomizedQueue<String>();
         
-        for (int i = 0; i < k; i++) {
-             rQueue.enqueue(StdIn.readString());
+        while (!StdIn.isEmpty()) {
+            rQueue.enqueue(StdIn.readString());
         }
         
         Iterator<String> i = rQueue.iterator();
-        while (i.hasNext()) {
-           StdOut.println(i.next());
+        
+        for (int ind = 0; ind < k; ind++) {
+           if (i.hasNext()) {
+               StdOut.println(i.next());
+           } else {
+               break;
+           }
         }
     }
 }
