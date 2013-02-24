@@ -1,3 +1,4 @@
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -239,6 +240,56 @@ public class RandomizedQueueTest {
         // when
         assertThat(Arrays.asList(numbersOut), containsInAnyOrder(numbers));
     }
+    
+    @Test
+    public void iteratorReturnsCorrectItemsAfterSequenceOfEnqueueAndDequeue () {
+
+        RandomizedQueue<String> rq = new RandomizedQueue<String>();     
+        LinkedList<String> list = new LinkedList<String>();
+
+        int N = 30000;
+
+        String item;
+        for (Integer i = 0; i < N; i++) {
+            if (!rq.isEmpty() && Math.random() < 0.5) {
+                item = rq.dequeue();
+                list.remove(list.indexOf(item));
+            }
+            else {
+                item = i.toString();
+                rq.enqueue(item);
+                list.push(item);
+            }
+        }
+
+        Iterator<String> iterator = rq.iterator();
+        LinkedList<String> list2 = new LinkedList<String>();
+        while(iterator.hasNext()) {
+            item = iterator.next();
+            list2.push(item);
+        }
+
+        Assert.assertTrue(equivalent(list,list2));
+    }
+
+    public static <T> boolean equivalent (LinkedList<T> l1, LinkedList<T> l2) {
+        if (l1.size() != l2.size()) return false;
+
+        boolean ans = true;
+        for (int i = 0; i < l1.size() && ans; i++) {
+            boolean localans = false;
+            for (int j = 0; j < l2.size(); j++) {
+                if (l1.get(i) == l2.get(j)) {
+                    localans = true;
+                    break;
+                }
+            }
+            ans = ans && localans;          
+        }
+
+        return ans;
+    }
+    
 
     private void enqueueIntegers(Integer[] numbers, int from, int to) {
         for (int i = from; i < to; i++) {
