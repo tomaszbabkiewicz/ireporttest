@@ -37,10 +37,8 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         int ind = 0;
         if (size > 0)
             ind = StdRandom.uniform(size);
-        Item i = randomizedQueue.get(ind);
-        randomizedQueue.remove(ind);
         size--;
-        return i;
+        return randomizedQueue.remove(ind);
     }
 
     // return (but do not delete) a random item
