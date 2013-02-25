@@ -1,15 +1,16 @@
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.NoSuchElementException;
 
 public class RandomizedQueue<Item> implements Iterable<Item> {
 
     private int size = 0;
-    private LinkedList<Item> randomizedQueue;
+    private ArrayList<Item> randomizedQueue;
     
     // construct an empty randomized queue
     public RandomizedQueue() {
-        randomizedQueue = new LinkedList<Item>();
+        randomizedQueue = new ArrayList<Item>();
     }
 
     // is the queue empty?
@@ -38,6 +39,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         if (size > 0)
             ind = StdRandom.uniform(size);
         size--;
+        Collections.swap(randomizedQueue, ind, size);
         return randomizedQueue.remove(ind);
     }
 
