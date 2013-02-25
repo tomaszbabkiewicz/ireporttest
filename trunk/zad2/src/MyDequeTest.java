@@ -59,7 +59,8 @@ public class MyDequeTest {
     public void testRandomCallSequences() {
         String   meth;
         String[] methods = {"enqueue", "sample", "dequeue", "isEmpty", "size"};
-        int      runs[] = {1024, 4096, 16384, 262144, 1024000};
+        //int      runs[] = {1024, 4096, 16384, 262144, 1024000};
+        int      runs[] = {1024000, 1024000, 1024000, 1024000, 1024000};
         RandomizedQueue<Integer> q = new RandomizedQueue<Integer>();
         boolean passed = true;
         try {
