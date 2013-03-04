@@ -1,15 +1,11 @@
 package com.myfaces.model.database;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 
 @Entity
@@ -28,22 +24,13 @@ public class User {
 	private String email;
 	private String phone;
 	
+	public User(String login, String firstName, String lastName) {
+		super();
+		this.login = login;
+		this.firstName = firstName;
+		this.lastName = lastName;
+	}
 
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date birthday;
-	
-	private boolean active;
-	private boolean deleted;
-	
-	private String pwContractorID;
-	private String erpCodeRec;
-	private String erpCodeRel;
-	private String erpCodeDel;
-
-	@Column(columnDefinition="TEXT")
-	private String oldPasswords;
-	
-    
 	public Long getUserId() {
 		return userId;
 	}
@@ -99,94 +86,5 @@ public class User {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-
-	public String getOldPasswords() {
-		return oldPasswords;
-	}
-
-	public void setOldPasswords(String oldPasswords) {
-		this.oldPasswords = oldPasswords;
-	}
-
-	public boolean isActive() {
-		return active;
-	}
-
-	public void setActive(boolean active) {
-		this.active = active;
-	}
-
-	public boolean isDeleted() {
-		return deleted;
-	}
-
-	public void setDeleted(boolean deleted) {
-		this.deleted = deleted;
-	}
-
-	public Date getBirthday() {
-		return birthday;
-	}
-
-	public void setBirthday(Date birthday) {
-		this.birthday = birthday;
-	}
-	
-	public String getPwContractorID() {
-		return pwContractorID;
-	}
-
-	public void setPwContractorID(String pwContractorID) {
-		this.pwContractorID = pwContractorID;
-	}
-
-	public String getErpCodeRec() {
-		return erpCodeRec;
-	}
-
-	public void setErpCodeRec(String erpCodeRec) {
-		this.erpCodeRec = erpCodeRec;
-	}
-
-	public String getErpCodeRel() {
-		return erpCodeRel;
-	}
-
-	public void setErpCodeRel(String erpCodeRel) {
-		this.erpCodeRel = erpCodeRel;
-	}
-
-	public String getErpCodeDel() {
-		return erpCodeDel;
-	}
-
-	public void setErpCodeDel(String erpCodeDel) {
-		this.erpCodeDel = erpCodeDel;
-	}
-
-	@Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (userId != null ? userId.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set 
-        if (!(object instanceof User)) {
-            return false;
-        }
-        User other = (User) object;
-        if ((this.userId == null && other.userId != null) || (this.userId != null && !this.userId.equals(other.userId))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "User[ userId=" + userId + " ]";
-    }
 
 }
