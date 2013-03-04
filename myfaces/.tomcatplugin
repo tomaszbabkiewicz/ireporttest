@@ -21,8 +21,8 @@
         <webClassPathEntry>C:/Users/primo/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar</webClassPathEntry>
         <webClassPathEntry>C:/Users/primo/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar</webClassPathEntry>
         <webClassPathEntry>C:/Users/primo/.m2/repository/junit/junit/4.8.2/junit-4.8.2.jar</webClassPathEntry>
-        <webClassPathEntry>C:/Users/primo/.m2/repository/org/apache/myfaces/core/myfaces-api/2.1.7/myfaces-api-2.1.7.jar</webClassPathEntry>
-        <webClassPathEntry>C:/Users/primo/.m2/repository/org/apache/myfaces/core/myfaces-impl/2.1.7/myfaces-impl-2.1.7.jar</webClassPathEntry>
+        <webClassPathEntry>C:/Users/primo/.m2/repository/org/apache/myfaces/core/myfaces-api/2.1.10/myfaces-api-2.1.10.jar</webClassPathEntry>
+        <webClassPathEntry>C:/Users/primo/.m2/repository/org/apache/myfaces/core/myfaces-impl/2.1.10/myfaces-impl-2.1.10.jar</webClassPathEntry>
         <webClassPathEntry>C:/Users/primo/.m2/repository/org/hibernate/common/hibernate-commons-annotations/4.0.1.Final/hibernate-commons-annotations-4.0.1.Final.jar</webClassPathEntry>
         <webClassPathEntry>C:/Users/primo/.m2/repository/org/hibernate/hibernate-core/4.1.9.Final/hibernate-core-4.1.9.Final.jar</webClassPathEntry>
         <webClassPathEntry>C:/Users/primo/.m2/repository/org/hibernate/hibernate-entitymanager/4.1.9.Final/hibernate-entitymanager-4.1.9.Final.jar</webClassPathEntry>
@@ -31,6 +31,7 @@
         <webClassPathEntry>C:/Users/primo/.m2/repository/org/jboss/logging/jboss-logging/3.1.0.GA/jboss-logging-3.1.0.GA.jar</webClassPathEntry>
         <webClassPathEntry>C:/Users/primo/.m2/repository/org/jboss/spec/javax/transaction/jboss-transaction-api_1.1_spec/1.0.0.Final/jboss-transaction-api_1.1_spec-1.0.0.Final.jar</webClassPathEntry>
         <webClassPathEntry>C:/Users/primo/.m2/repository/org/primefaces/primefaces/3.1.1/primefaces-3.1.1.jar</webClassPathEntry>
+        <webClassPathEntry>C:/Users/primo/.m2/repository/org/primefaces/themes/black-tie/1.0.9/black-tie-1.0.9.jar</webClassPathEntry>
         <webClassPathEntry>C:/Users/primo/.m2/repository/org/springframework/spring-aop/3.1.1.RELEASE/spring-aop-3.1.1.RELEASE.jar</webClassPathEntry>
         <webClassPathEntry>C:/Users/primo/.m2/repository/org/springframework/spring-asm/3.1.1.RELEASE/spring-asm-3.1.1.RELEASE.jar</webClassPathEntry>
         <webClassPathEntry>C:/Users/primo/.m2/repository/org/springframework/spring-beans/3.1.1.RELEASE/spring-beans-3.1.1.RELEASE.jar</webClassPathEntry>

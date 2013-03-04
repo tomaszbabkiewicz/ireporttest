@@ -12,7 +12,7 @@
 	<url>http://www.myorganization.org</url>
 
 	<properties>
-		<jsf-myfaces.version>2.1.7</jsf-myfaces.version>
+		<jsf-myfaces.version>2.1.10</jsf-myfaces.version>
 		<spring.version>3.1.1.RELEASE</spring.version>
 	</properties>
 
@@ -116,6 +116,12 @@
 			<groupId>org.primefaces</groupId>
 			<artifactId>primefaces</artifactId>
 			<version>3.1.1</version>
+		</dependency>
+		
+		<dependency>  
+		    <groupId>org.primefaces.themes</groupId>  
+		    <artifactId>black-tie</artifactId>  
+		    <version>1.0.9</version>  
 		</dependency>
 
 		<dependency>
