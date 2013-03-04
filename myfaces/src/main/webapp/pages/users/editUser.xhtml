@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" template="/layout/layout.xhtml">
+
+	<ui:define name="content">
+
+		<style>
+			.col1 {
+				width: 150px;
+			}
+			
+			.col2 {
+				width: 300px;
+			}
+		</style>
+		<br />
+
+		<h:form>
+			<h:panelGrid columns="2" columnClasses="col1, col2">
+				<f:facet name="header">
+					<h:outputText value="Dane podstawowe" />
+				</f:facet>
+				
+				<h:outputText value="Imię: " />
+				<p:inputText />
+				
+				<h:outputText value="Nazwisko: " />
+				<p:inputText />
+				
+				<h:outputText value="E-mail: " />
+				<p:inputText />
+				
+				<h:outputText value="Telefon kontaktowy: " />
+				<p:inputText />
+			</h:panelGrid>
+			
+			<h:panelGrid columns="2" columnClasses="col1, col2">
+				<f:facet name="header">
+					<h:outputText value="Adres" />
+				</f:facet>
+				
+				<h:outputText value="Ulica: " />
+				<p:inputText />
+	
+				<h:outputText value="Nr domu: " />
+				<p:inputText />
+	
+				<h:outputText value="Nr lokalu: " />
+				<p:inputText />
+	
+				<h:outputText value="Kod pocztowy: " />
+				<p:inputText />
+				
+				<h:outputText value="Miejscowość: " />
+				<p:inputText />
+				
+			</h:panelGrid>
+			
+			<p:commandButton value="Zapisz"/>
+
+		</h:form>
+
+		<br />
+		<br />
+		<br />
+
+	</ui:define>
+
+</ui:composition>

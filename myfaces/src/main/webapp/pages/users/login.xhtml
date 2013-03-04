@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" template="/layout/layout.xhtml">
+
+	<ui:define name="content">
+		<br />
+
+		<h:form id="loginForm">
+			<p:panel id="panel" header="Zaloguj się">
+
+				<p:messages id="msgs" />
+
+				<h:panelGrid columns="3" cellpadding="5">
+					<h:outputLabel for="login" value="Login: " />
+					<p:inputText id="login" value="#{loginBean.login}" required="true"
+						label="Login">
+						<f:validateLength minimum="2" />
+					</p:inputText>
+					<p:message for="login" />
+
+					<h:outputLabel for="password" value="Hasło: " />
+					<p:inputText id="password" value="#{loginBean.password}"
+						required="true" label="Hasło" />
+					<p:message for="password" />
+
+				</h:panelGrid>
+				
+				<p:commandButton value="Login" action="#{loginBean.logIn}" update="loginForm"/>
+
+			</p:panel>
+		</h:form>
+
+		<br />
+		<br />
+		<br />
+
+	</ui:define>
+
+</ui:composition>

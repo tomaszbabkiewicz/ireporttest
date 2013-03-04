@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" template="/layout/layout.xhtml">
+
+	<ui:define name="content">
+
+		<style>
+.noneBorder {
+	border: none !important;
+	padding: 1px !important;
+}
+
+.imageTest {
+	background: url("#{resource['img:edit.png']}");
+}
+</style>
+		<br />
+
+		<h:form>
+			<p:dataTable var="user" value="#{userBean.allUsers}">
+				<p:column headerText="Login">
+					<h:outputText value="#{user.login}" />
+				</p:column>
+
+				<p:column headerText="Imię">
+					<h:outputText value="#{user.firstName}" />
+				</p:column>
+
+				<p:column headerText="Nazwisko">
+					<h:outputText value="#{user.lastName}" />
+				</p:column>
+
+				<p:column style="width:4%">
+					<h:panelGrid columns="2" cellpadding="0" cellspacing="0"
+						columnClasses="noneBorder, noneBorder">
+						<p:commandButton icon="ui-icon-search" title="View" oncomplete="carDialog.show()"/>
+						<p:commandButton icon="ui-icon-close" title="Delete" />
+						<h:graphicImage library="img" name="edit.png" width="24px"/>
+						<h:graphicImage library="img" name="delete.png"  width="24px"/>
+					</h:panelGrid>
+				</p:column>
+
+			</p:dataTable>
+
+			<p:dialog header="Car Detail" widgetVar="carDialog" resizable="false"
+				id="carDlg" showEffect="fade" hideEffect="explode" modal="true">
+
+				<h:panelGrid id="display" columns="2" cellpadding="4"
+					style="margin:0 auto;">
+
+					<h:outputText value="Dane:" />
+					<h:outputText value="xxxx" style="font-weight:bold" />
+
+				</h:panelGrid>
+
+			</p:dialog>
+
+		</h:form>
+
+		<br />
+		<br />
+		<br />
+
+	</ui:define>
+
+</ui:composition>
